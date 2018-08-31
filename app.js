@@ -4,10 +4,12 @@ var bodyParser = require('body-parser');
 
 var db;
 
-if(process.env.ENV == 'Test')
+if(process.env.NODE_ENV == 'Test')
     db = mongoose.connect('mongodb://localhost/libraryApp_Test');
 else
     db = mongoose.connect('mongodb://localhost/libraryApp');
+
+console.log('ENV is set to ' + process.env.NODE_ENV);
 
 var Book = require('./models/bookModel');
 
